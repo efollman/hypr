@@ -1,0 +1,11 @@
+hl.bind("SUPER + CTRL + T", function()
+    --hl.monitor({output = "Figure out", disabled = true})
+    --hl.monitor({output = "Figure out", disabled = false})
+    hl.exec_cmd("steam -bigpicture")
+end)
+
+hl.bind("SUPER + CTRL + SHIFT + T", function()
+    --hl.monitor({output = "Figure out", disabled = true})
+    --hl.monitor({output = "Figure out", disabled = false})
+    hl.exec_cmd("steam steam://close/bigpicture")
+end)

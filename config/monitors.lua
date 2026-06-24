@@ -1,7 +1,7 @@
 hl.monitor({
-	output = "",
+	output = "", --specify output? need to create switching game mode logic at some point as well
 	mode = "2560x1440@300",
-	position = "auto",
+	position = "0x0",
 	scale = 1,
 })
 
@@ -13,9 +13,9 @@ hl.config({
 
 hl.config({
 	misc = {
-		vrr = 1, -- video or game content 3, set to 1 or 2 (fullscreen only) if this causes issues/ doesnt work
+		vrr = 1, -- game and video content only (3) was not working gamescope
 	},
 	quirks = {
-		prefer_hdr = 2, --gamescope only
+		prefer_hdr = 2, --gamescope only (not sure if works correctly yet)
 	},
 })
