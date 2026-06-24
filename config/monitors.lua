@@ -12,10 +12,10 @@ hl.config({
 })
 
 hl.config({
-	--misc{
-	--    vrr = 3, -- video or game content 3, set to 1 or 2 (fullscreen only) if this causes issues/ doesnt work
-	--},
-	--quirks({
-	--	prefer_hdr = 2, --gamescope only
-	--}),
+	misc = {
+		vrr = 3, -- video or game content 3, set to 1 or 2 (fullscreen only) if this causes issues/ doesnt work
+	},
+	quirks = {
+		prefer_hdr = 2, --gamescope only
+	},
 })
