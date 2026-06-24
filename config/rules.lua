@@ -3,7 +3,7 @@ hl.window_rule({
 		class = "^gamescope",
 	},
 
-	psuedo = true,
+	pseudo = true,
 	size = { 1920, 1080 },
 	keep_aspect_ratio = true,
 	no_initial_focus = true,
