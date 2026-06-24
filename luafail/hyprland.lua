@@ -1,6 +1,0 @@
-require("config.env")
-require("config.monitors")
-require("config.appearance")
-require("config.input")
-require("config.rules")
-require("config.binds")

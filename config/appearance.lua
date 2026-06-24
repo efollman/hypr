@@ -39,7 +39,9 @@ hl.config({
 	animations = {
 		enabled = false,
 	},
+})
 
+hl.config({
 	dwindle = {
 		preserve_split = true,
 	},
@@ -51,10 +53,5 @@ hl.config({
 		new_status = "slave",
 		new_on_top = false,
 		smart_resizing = true,
-	},
-
-	misc = {
-		force_default_wallpaper = -1,
-		disable_hyprland_logo = false,
 	},
 })
