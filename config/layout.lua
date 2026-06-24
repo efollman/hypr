@@ -17,6 +17,7 @@ hl.config({
 		mfact = 0.55,
 		new_status = "slave",
 		new_on_top = false,
-		smart_resizing = true,
+		smart_resizing = false,
+        allow_small_split = true,
 	},
 })

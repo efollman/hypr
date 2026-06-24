@@ -5,6 +5,15 @@ hl.monitor({
 	scale = 1,
 })
 
+--[[
+hl.monitor({
+    output = "HDMI-A-1",
+    mode = "3840x2160@60"
+    position = "auto"
+    scale = 1
+})
+]]
+
 hl.config({
 	xwayland = {
 		force_zero_scaling = true,
