@@ -1,11 +1,11 @@
 hl.config({
-    general = { --will this overwrite?
+	general = { --will this overwrite?
 		layout = "master",
 	},
 
-    layout = {
-        single_window_aspect_ratio = {4,3} --try this out (exactly somting i was looking for before)
-    }
+	layout = {
+		single_window_aspect_ratio = { 7, 6 }, --try this out (exactly somting i was looking for before)
+	},
 
 	dwindle = {
 		preserve_split = true,
@@ -18,6 +18,6 @@ hl.config({
 		new_status = "slave",
 		new_on_top = false,
 		smart_resizing = false,
-        allow_small_split = true,
+		allow_small_split = true,
 	},
 })
