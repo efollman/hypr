@@ -14,31 +14,39 @@ would be cool to have cec control but i beleive that requires some sort of adapt
 ]]
 
 hl.bind("SUPER + CTRL + T", function()
-    --hl.monitor({output = "Figure out", disabled = true})
-    --hl.monitor({output = "Figure out", disabled = false})
-    
-    hl.config({
-        misc = {
-		    vrr = 0, -- game and video content only (3) was not working gamescope
-	    },
-	    quirks = {
-		    prefer_hdr = 1, --prefer hdr always, unsure if necissary or even good.
-	    },
-    })
-    --may want a sleep command here
-    hl.exec_cmd("steam -bigpicture")
+	hl.monitor({ output = "HDMI-A-1", disabled = false })
+	hl.monitor({ output = "DP-1", disabled = true })
+
+	hl.config({
+		misc = {
+			vrr = 0, -- game and video content only (3) was not working gamescope
+		},
+		quirks = {
+			--prefer_hdr = 1, --prefer hdr always, unsure if necissary or even good.
+		},
+	})
+	--may want a sleep command here
+	hl.exec_cmd("steam -bigpicture")
 end)
 
 hl.bind("SUPER + CTRL + SHIFT + T", function()
-    hl.exec_cmd("steam steam://close/bigpicture")
-    --hl.monitor({output = "Figure out", disabled = true})
-    --hl.monitor({output = "Figure out", disabled = false})
-    hl.config({
-        misc = {
-		    vrr = 1, -- game and video content only (3) was not working gamescope
-	    },
-	    quirks = {
-		    prefer_hdr = 2, --gamescope only (not sure if works correctly or is really needed yet)
-	    },
-    })
+	hl.exec_cmd("steam steam://close/bigpicture")
+	hl.monitor({ output = "DP-1", disabled = false })
+	hl.monitor({ output = "HDMI-A-1", disabled = true })
+
+	hl.config({
+		misc = {
+			vrr = 1, -- game and video content only (3) was not working gamescope
+		},
+		quirks = {
+			prefer_hdr = 2, --gamescope only (not sure if works correctly or is really needed yet)
+		},
+	})
 end)
+
+-- Keep fullscreen when windows close (helps with BPM)
+hl.config({
+	misc = {
+		exit_window_retains_fullscreen = true,
+	},
+})

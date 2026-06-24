@@ -1,18 +1,17 @@
 hl.monitor({
-	output = "", --specify output? need to create switching game mode logic at some point as well
+	output = "DP-1", --specify output? need to create switching game mode logic at some point as well
 	mode = "2560x1440@300",
 	position = "0x0",
 	scale = 1,
 })
 
---[[
 hl.monitor({
-    output = "HDMI-A-1",
-    mode = "3840x2160@60"
-    position = "auto"
-    scale = 1
+	output = "HDMI-A-1",
+	mode = "3840x2160@60",
+	position = "auto",
+	scale = 1,
+	disabled = true,
 })
-]]
 
 hl.config({
 	xwayland = {
