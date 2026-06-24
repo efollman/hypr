@@ -10,6 +10,16 @@ hl.env("QT_QPA_PLATFORM", "wayland")
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 
+hl.on("hyprland.start", function()
+	hl.exec_cmd("waybar")
+	hl.exec_cmd("hyprpaper")
+	hl.exec_cmd("hyprpolkitagent")
+	hl.exec_cmd("mako")
+
+	--might not be necissary, may also belong in appearance
+	hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme prefer-dark")
+	hl.exec_cmd("gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3")
+end)
 --hl.exec_once("waybar")
 --hl.exec_once("hyprpaper")
 --hl.exec_once("hyprpolkitagent")
@@ -20,14 +30,14 @@ hl.env("HYPRCURSOR_SIZE", "24")
 --hl.exec_once("gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3")
 
 hl.config({
-    misc = {
+	misc = {
 		disable_hyprland_logo = true,
 		--disable_splash_rendering = true, --not sure if needed
 	},
-    ecosystem = {
-        no_update_news = false,
-        no_donation_nag = true,
-    },
+	ecosystem = {
+		no_update_news = false,
+		no_donation_nag = true,
+	},
 })
 
 require("config.monitors")
