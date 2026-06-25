@@ -11,7 +11,7 @@ should probably make functions local if possible (not sure how that will interac
 need to check if using 64 bit beta and check if steam overlay issues are resolved.
 ]]
 
-IsTVgamemodeEnabled = false
+TVGamemodeEnabled = false
 
 hl.env("PROTON_ENABLE_WAYLAND", "1")
 
@@ -29,6 +29,9 @@ function enableTVgamemode()
 	hl.monitor({ output = "DP-1", disabled = true })
 
 	hl.config({
+		general = {
+			allow_tearing = true,
+		},
 		misc = {
 			vrr = 0, -- vrr off for tv
 		},
@@ -41,9 +44,9 @@ function enableTVgamemode()
 	NgamescopeRule:set_enabled(false)
 	TVgamescopeRule:set_enabled(true)
 	--may want a sleep command here
-	hl.exec_cmd("steam -tenfoot")
-	--hl.exec_cmd("gamescope -f -e -U -- steam -tenfoot") -- can try nested gamescope later, may cause issues
-	hl.exec_cmd("steam steam://open/bigpicture")
+	hl.exec_cmd("steam -shutdown && gamescope -f -e -U -- steam -tenfoot")
+	--hl.exec_cmd("steam -tenfoot")
+	--hl.exec_cmd("steam steam://open/bigpicture")
 end
 
 function disableTVgamemode()
@@ -51,6 +54,9 @@ function disableTVgamemode()
 	hl.monitor({ output = "HDMI-A-1", disabled = true })
 
 	hl.config({
+		general = {
+			allow_tearing = false,
+		},
 		misc = {
 			vrr = 1, -- game and video content only (3) was not working gamescope
 		},
@@ -62,18 +68,18 @@ function disableTVgamemode()
 	SuppressMaximizeRule:set_enabled(true)
 	NgamescopeRule:set_enabled(true)
 	TVgamescopeRule:set_enabled(false)
-	hl.exec_cmd("steam steam://close/bigpicture") -- need to fix scaling when big picture is closed.
+	hl.exec_cmd("steam -shutdown && steam")
+	--hl.exec_cmd("steam steam://close/bigpicture") -- need to fix scaling when big picture is closed.
 end
 
 function toggleTVgamemode()
-	if IsTVgamemodeEnabled then
+	if TVGamemodeEnabled then
 		disableTVgamemode()
-		IsTVGamemodeEnabled = false
+		TVGamemodeEnabled = false
 	else
 		enableTVgamemode()
-		IsTVGamemodeEnabled = true
+		TVGamemodeEnabled = true
 	end
 end
 
-hl.bind("SUPER + CTRL + T", toggleTVgamemode) --toggle not working for some reason
-hl.bind("SUPER + CTRL + SHIFT + T", disableTVgamemode)
+hl.bind("SUPER + CTRL + T", toggleTVgamemode)
