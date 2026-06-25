@@ -1,3 +1,13 @@
+--[[
+hl.window_rule({
+	name = "steamapps",
+	match = {
+		class = "^(steam_app_\d+)$"
+	}
+})
+
+]]
+
 NgamescopeRule = hl.window_rule({
 	name = "normal gamescope",
 	match = {
