@@ -8,6 +8,10 @@ hl.bind(
 	mainMod .. " + CTRL + ESCAPE",
 	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
 )
+hl.bind(
+	mainMod .. " + CTRL + RETURN",
+	hl.dsp.exec_cmd("hyprctl reload")
+)
 hl.bind(mainMod .. " + SHIFT + F", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + T", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu)) --change to walker setup?

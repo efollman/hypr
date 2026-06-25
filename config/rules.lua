@@ -1,4 +1,5 @@
-hl.window_rule({
+NgamescopeRule = hl.window_rule({
+	name = "normal gamescope",
 	match = {
 		class = "^gamescope",
 	},
@@ -11,7 +12,17 @@ hl.window_rule({
 	immediate = true,
 })
 
-hl.window_rule({
+TVgamescopeRule = hl.window_rule({
+	name = "TV gamescope"
+	match = {
+		class = "^gamescope",
+	},
+	fullscreen = true,
+})
+
+TVgamescopeRule:set_enabled(false)
+
+SuppressMaximizeRule = hl.window_rule({
 	-- Ignore maximize requests from all apps. You'll probably like this.
 	name = "suppress-maximize-events",
 	match = { class = ".*" },
