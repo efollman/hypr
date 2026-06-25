@@ -9,6 +9,7 @@ hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 hl.env("QT_QPA_PLATFORM", "wayland")
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("PROTON_ENABLE_WAYLAND", "1")
 
 hl.on("hyprland.start", function()
 	hl.exec_cmd("waybar")
@@ -31,3 +32,4 @@ hl.config({
 		no_donation_nag = true,
 	},
 })
+

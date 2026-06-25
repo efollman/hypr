@@ -13,7 +13,7 @@ NgamescopeRule = hl.window_rule({
 })
 
 TVgamescopeRule = hl.window_rule({
-	name = "TV gamescope"
+	name = "TV gamescope",
 	match = {
 		class = "^gamescope",
 	},

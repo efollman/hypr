@@ -13,6 +13,17 @@ need to check if using 64 bit beta and check if steam overlay issues are resolve
 
 IsTVgamemodeEnabled = false
 
+hl.env("PROTON_ENABLE_WAYLAND", "1")
+
+-- Keep fullscreen when windows close (helps with BPM)
+hl.config({
+	misc = {
+		exit_window_retains_fullscreen = true,
+	},
+})
+
+--HK: LD_PRELOAD="" MANGOHUD=1 gamescope --force-grab-cursor --adaptive-sync -w 2560 -h 1440 -W 2560 -H 1440 -r 300 -- %command%
+
 function enableTVgamemode()
 	hl.monitor({ output = "HDMI-A-1", disabled = false })
 	hl.monitor({ output = "DP-1", disabled = true })
@@ -32,7 +43,7 @@ function enableTVgamemode()
 	--may want a sleep command here
 	hl.exec_cmd("steam -tenfoot")
 	--hl.exec_cmd("gamescope -f -e -U -- steam -tenfoot") -- can try nested gamescope later, may cause issues
-	--hl.exec_cmd("steam steam://open/bigpicture")
+	hl.exec_cmd("steam steam://open/bigpicture")
 end
 
 function disableTVgamemode()
@@ -51,26 +62,18 @@ function disableTVgamemode()
 	SuppressMaximizeRule:set_enabled(true)
 	NgamescopeRule:set_enabled(true)
 	TVgamescopeRule:set_enabled(false)
-
 	hl.exec_cmd("steam steam://close/bigpicture") -- need to fix scaling when big picture is closed.
 end
 
 function toggleTVgamemode()
 	if IsTVgamemodeEnabled then
 		disableTVgamemode()
+		IsTVGamemodeEnabled = false
 	else
 		enableTVgamemode()
+		IsTVGamemodeEnabled = true
 	end
-
 end
 
-
-
-hl.bind("SUPER + CTRL + T", toggleTVgamemode())
-
--- Keep fullscreen when windows close (helps with BPM)
-hl.config({
-	misc = {
-		exit_window_retains_fullscreen = true,
-	},
-})
+hl.bind("SUPER + CTRL + T", toggleTVgamemode) --toggle not working for some reason
+hl.bind("SUPER + CTRL + SHIFT + T", disableTVgamemode)
