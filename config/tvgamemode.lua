@@ -44,7 +44,7 @@ function enableTVgamemode()
 	NgamescopeRule:set_enabled(false)
 	TVgamescopeRule:set_enabled(true)
 	--may want a sleep command here
-	hl.exec_cmd("steam -shutdown && gamescope -f -e -U -- steam -tenfoot")
+	hl.exec_cmd("steam -shutdown && gamescope -w 3840 -h 2160 -W 3840 -H 2160 -r 60 -f -e -U -- steam -tenfoot")
 	--hl.exec_cmd("steam -tenfoot")
 	--hl.exec_cmd("steam steam://open/bigpicture")
 end
