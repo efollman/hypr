@@ -11,7 +11,7 @@ hl.workspace_rule({ workspace = "name:tv", monitor = "HDMI-A-1", default = true,
 
 --move focus to workspace before opening steam
 
---if doesnt fully work may need focusmonitor as well
+--if doesnt fully work may need focusmonitor as well hl.dsp.focus({ monitor = "HDMI-A-1"})
 hl.dsp.focus({ workspace = "name:tv"})
 
 --then
@@ -49,3 +49,9 @@ TVgamescopeRule = hl.window_rule({
     immediate = true,
     render_unfocused = true,
 })
+
+--figure out why tv audio doesnt show up
+
+--switch with hl.exec_cmd("wpctl set-default <ID>") ID may change on reboot can maybe set with name with pactl set-default-sink (list with pactl list short sinks)
+
+-- maybe install sof-firmware alsa-firmware pavucontrol (do i have? no have wiremix?)
