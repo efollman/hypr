@@ -15,12 +15,14 @@ TVGamemodeEnabled = false
 
 hl.env("PROTON_ENABLE_WAYLAND", "1")
 
+--[[
 -- Keep fullscreen when windows close (helps with BPM)
 hl.config({
 	misc = {
 		exit_window_retains_fullscreen = true,
 	},
 })
+]]
 
 --HK: LD_PRELOAD="" MANGOHUD=1 gamescope --force-grab-cursor --adaptive-sync -w 2560 -h 1440 -W 2560 -H 1440 -r 300 -- %command%
 
@@ -44,8 +46,11 @@ function enableTVgamemode()
 	NgamescopeRule:set_enabled(false)
 	TVgamescopeRule:set_enabled(true)
 	--may want a sleep command here
-	hl.exec_cmd("steam -shutdown && gamescope -w 3840 -h 2160 -W 3840 -H 2160 -r 60 -f -e -U -- steam -tenfoot")
-	--hl.exec_cmd("steam -tenfoot")
+	hl.exec_cmd("steam -shutdown")
+	hl.exec_cmnd(
+		"sleep 5 && gamescope -w 3840 -h 2160 -r 60 -f -e --force-windows-fullscreen --force-grab-cursor --adaptive-sync -- steam -gamepadui -steamos"
+	)
+
 	--hl.exec_cmd("steam steam://open/bigpicture")
 end
 
@@ -68,8 +73,8 @@ function disableTVgamemode()
 	SuppressMaximizeRule:set_enabled(true)
 	NgamescopeRule:set_enabled(true)
 	TVgamescopeRule:set_enabled(false)
-	hl.exec_cmd("steam -shutdown && steam")
-	--hl.exec_cmd("steam steam://close/bigpicture") -- need to fix scaling when big picture is closed.
+	--hl.exec_cmd("steam -shutdown && steam")
+	hl.exec_cmd("steam -shutdown") -- need to fix scaling when big picture is closed.
 end
 
 function toggleTVgamemode()
