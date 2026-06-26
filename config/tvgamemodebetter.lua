@@ -52,6 +52,8 @@ TVgamescopeRule = hl.window_rule({
 
 --figure out why tv audio doesnt show up
 
---switch with hl.exec_cmd("wpctl set-default <ID>") ID may change on reboot can maybe set with name with pactl set-default-sink (list with pactl list short sinks)
+--switch with hl.exec_cmd("wpctl set-default <ID>") ID may change on reboot can maybe set with name with pactl set-default-sink "name" (list with pactl list short sinks)
 
--- maybe install sof-firmware alsa-firmware pavucontrol (do i have? no have wiremix?)
+-- maybe install sof-firmware alsa-utils
+
+--can maybe dynamically switch steamtinkerlauch to handle gamescope nesting etc (profile switching?)
