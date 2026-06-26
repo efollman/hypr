@@ -13,6 +13,8 @@ hl.monitor({
 	--disabled = true,
 })
 
+hl.workspace_rule({ workspace = "name:tv", monitor = "HDMI-A-1", default = true, gaps_in = 0, gaps_out = 0, border_size = 0, no_shadow = true, no_rounding = true, decorate = false, persistent = true})
+
 hl.config({
 	xwayland = {
 		force_zero_scaling = true,

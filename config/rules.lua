@@ -20,6 +20,7 @@ NgamescopeRule = hl.window_rule({
 	no_initial_focus = true,
 	no_follow_mouse = true,
 	immediate = true,
+    idle_inhibit = "fullscreen",
 })
 
 TVgamescopeRule = hl.window_rule({
@@ -28,6 +29,12 @@ TVgamescopeRule = hl.window_rule({
 		class = "^gamescope",
 	},
 	fullscreen = true,
+    fullscreen_state = 3,
+    content = "game",
+    stay_focused = true,
+    idle_inhibit = "always",
+    immediate = true,
+    render_unfocused = true,
 })
 
 TVgamescopeRule:set_enabled(false)
