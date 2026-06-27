@@ -31,9 +31,9 @@ TVgamescopeRule = hl.window_rule({
 	fullscreen = true,
     fullscreen_state = 3,
     content = "game",
-    stay_focused = true,
+    --stay_focused = true,
     idle_inhibit = "always",
-    immediate = true,
+    --immediate = true,
     render_unfocused = true,
 })
 

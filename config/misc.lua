@@ -1,5 +1,5 @@
 terminal = "ghostty"
-fileManager = "nautilus"
+fileManager = "dolphin"
 menu = "hyprlauncher"
 browser = "chromium"
 
@@ -32,4 +32,3 @@ hl.config({
 		no_donation_nag = true,
 	},
 })
-

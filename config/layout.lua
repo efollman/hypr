@@ -21,3 +21,5 @@ hl.config({
 		allow_small_split = true,
 	},
 })
+
+hl.workspace_rule({ workspace = "special:magic", gaps_out = 40 })

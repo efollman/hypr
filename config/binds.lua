@@ -14,6 +14,16 @@ hl.bind(mainMod .. " + T", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu)) --change to walker setup?
 hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd(browser))
 
+hl.bind(mainMod .. " + SHIFT + D", hl.dsp.exec_cmd(terminal .. " -e gdu"))
+hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd("flatpak run com.discordapp.Discord"))
+hl.bind(mainMod .. " + SHIFT + T", hl.dsp.exec_cmd(terminal .. " -e btop"))
+hl.bind(mainMod .. " + SHIFT + ALT + F", hl.dsp.exec_cmd(terminal .. " -e yazi"))
+hl.bind(
+	mainMod .. " + SHIFT + O",
+	hl.dsp.exec_cmd("flatpak run com.obsproject.Studio", { workspace = "special:magic" })
+)
+hl.bind(mainMod .. " + SHIFT + G", hl.dsp.exec_cmd("steam"))
+
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ "fullscreen" }, { action = "toggle" }))
 
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())

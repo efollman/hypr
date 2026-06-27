@@ -27,8 +27,9 @@ hl.config({
 --HK: LD_PRELOAD="" MANGOHUD=1 gamescope --force-grab-cursor --adaptive-sync -w 2560 -h 1440 -W 2560 -H 1440 -r 300 -- %command%
 
 function enableTVgamemode()
-	hl.dsp.dpms({"on","DP-1"})
-	hl.dsp.dpms({"on","HDMI-A-1"})
+	--hl.dsp.dpms({"enable","DP-1"})
+	--hl.dsp.dpms({action = "enable",monitor = "HDMI-A-1"})
+	hl.monitor({output = "HDMI-A-1",  disabled = false })
 
 	hl.config({
 		general = {
@@ -49,13 +50,18 @@ function enableTVgamemode()
 	hl.dsp.focus({ workspace = "name:tv"})
 	--may want a sleep command here
 	--need better way of handling shutdown
-	hl.exec_cmd("gamescope -w 3840 -h 2160 -r 60 -f -e --force-windows-fullscreen --force-grab-cursor --adaptive-sync -- steam -gamepadui -steamos", {workspace = "name:tv", fullscreen = true, maximize = true})
+	--hl.exec_cmd("gamescope -w 3840 -h 2160 -r 60 -e -- steam -tenfoot", {workspace = "name:tv", fullscreen = true})
+	hl.timer(function()
+		hl.exec_cmd("gamescope -w 3840 -h 2160 -- steam", {workspace = "name:tv", fullscreen = true})
+	end, {timeout = 1000, type = "oneshot"})
 	--hl.exec_cmd("steam steam://open/bigpicture")
 end
 
 function disableTVgamemode()
 	--hl.dsp.dpms({"on","DP-1"})
-	--hl.dsp.dpms({action = "off",monitor = "HDMI-A-1"})
+	--hl.dsp.dpms({action = "disable",monitor = "HDMI-A-1"})
+
+	hl.monitor({output = "HDMI-A-1",  disabled = true })
 
 	hl.config({
 		general = {
@@ -74,7 +80,7 @@ function disableTVgamemode()
 	TVgamescopeRule:set_enabled(false)
 	--hl.exec_cmd("steam -shutdown && steam")
 	hl.dsp.focus({workspace = 1})
-	hl.exec_cmd("steam -shutdown") -- need to fix scaling when big picture is closed.
+	hl.exec_cmd("pkill steam && pkill gamescope") -- need to fix scaling when big picture is closed.
 end
 
 function toggleTVgamemode()
