@@ -13,6 +13,7 @@ hl.bind(mainMod .. " + SHIFT + F", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + T", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu)) --change to walker setup?
 hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd(browser))
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
 
 hl.bind(mainMod .. " + SHIFT + D", hl.dsp.exec_cmd(terminal .. " -e gdu"))
 hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd("flatpak run com.discordapp.Discord"))
