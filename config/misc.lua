@@ -1,8 +1,3 @@
-terminal = "ghostty"
-fileManager = "dolphin"
-menu = "hyprlauncher"
-browser = "chromium"
-
 hl.env("GDK_SCALE", "1")
 hl.env("GTK_THEME", "Adwaita:dark")
 hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
