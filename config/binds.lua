@@ -1,9 +1,11 @@
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
+local terminal = "ghostty"
+local fileManager = "dolphin"
+local menu = "hyprlauncher"
+local browser = "chromium"
 
--- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
-local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
--- closeWindowBind:set_enabled(false)
+hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(
 	mainMod .. " + CTRL + ESCAPE",
 	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
@@ -23,6 +25,8 @@ hl.bind(
 	mainMod .. " + SHIFT + O",
 	hl.dsp.exec_cmd("flatpak run com.obsproject.Studio", { workspace = "special:magic" })
 )
+hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd(terminal .. " -e pacsea"))
+
 hl.bind(mainMod .. " + SHIFT + G", hl.dsp.exec_cmd("steam"))
 
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ "fullscreen" }, { action = "toggle" }))
@@ -35,6 +39,10 @@ hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + up", hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "down" }))
+
+-- add resizing binds -= keys
+-- bind = $mainMod, code:20, resizeactive, -100 0    # - key
+-- bind = $mainMod, code:21, resizeactive, 100 0     # = key
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
