@@ -17,3 +17,5 @@ require('lspconfig').lua_ls.setup {
     }
   }
 }
+
+-- the .luarc.json might be enough on it's own tbh
