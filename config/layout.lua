@@ -18,7 +18,6 @@ hl.config({
 		new_status = "slave",
 		new_on_top = false,
 		smart_resizing = false,
-		allow_small_split = true,
 	},
 })
 
