@@ -1,0 +1,19 @@
+add to init.lua or lsp.lua neovim config
+
+require('lspconfig').lua_ls.setup {
+  settings = {
+    Lua = {
+      workspace = {
+        library = {
+          "/usr/share/hypr/stubs",
+          -- (Include your Neovim runtime files too if you haven't already)
+          -- vim.api.nvim_get_runtime_file("", true), 
+        }
+      },
+      diagnostics = {
+        -- Stops the server from complaining about undefined global 'hl'
+        globals = { "hl" },
+      }
+    }
+  }
+}
