@@ -1,6 +1,6 @@
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 local terminal = "ghostty"
-local fileManager = "nautilus"
+local fileManager = "nautilus --new-window"
 local menu = "hyprlauncher"
 local browser = "chromium"
 
@@ -18,7 +18,7 @@ hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
 
 hl.bind(mainMod .. " + SHIFT + D", hl.dsp.exec_cmd(terminal .. " -e gdu"))
-hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd("flatpak run com.discordapp.Discord"))
+hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd("flatpak run com.discordapp.Discord"))
 hl.bind(mainMod .. " + SHIFT + T", hl.dsp.exec_cmd(terminal .. " -e btop"))
 hl.bind(mainMod .. " + SHIFT + ALT + F", hl.dsp.exec_cmd(terminal .. " -e yazi"))
 hl.bind(
