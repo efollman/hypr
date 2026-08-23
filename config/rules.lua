@@ -1,12 +1,10 @@
---[[
 hl.window_rule({
 	name = "steamapps",
 	match = {
-		class = "^(steam_app_\d+)$"
-	}
+		class = "steam_app_.*",
+	},
+	workspace = 10,
 })
-
-]]
 
 NgamescopeRule = hl.window_rule({
 	name = "normal gamescope",
@@ -20,7 +18,7 @@ NgamescopeRule = hl.window_rule({
 	no_initial_focus = true,
 	no_follow_mouse = true,
 	immediate = true,
-    idle_inhibit = "fullscreen",
+	idle_inhibit = "fullscreen",
 })
 
 TVgamescopeRule = hl.window_rule({
@@ -29,12 +27,12 @@ TVgamescopeRule = hl.window_rule({
 		class = "^gamescope",
 	},
 	fullscreen = true,
-    fullscreen_state = 3,
-    content = "game",
-    --stay_focused = true,
-    idle_inhibit = "always",
-    --immediate = true,
-    render_unfocused = true,
+	fullscreen_state = 3,
+	content = "game",
+	--stay_focused = true,
+	idle_inhibit = "always",
+	--immediate = true,
+	render_unfocused = true,
 })
 
 TVgamescopeRule:set_enabled(false)

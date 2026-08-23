@@ -1,6 +1,6 @@
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 local terminal = "ghostty"
-local fileManager = "dolphin"
+local fileManager = "nautilus"
 local menu = "hyprlauncher"
 local browser = "chromium"
 
@@ -28,6 +28,7 @@ hl.bind(
 hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd(terminal .. " -e pacsea"))
 
 hl.bind(mainMod .. " + SHIFT + G", hl.dsp.exec_cmd("steam"))
+hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd("QT_QPA_PLATFORM=xcb /opt/resolve/bin/resolve"))
 
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ "fullscreen" }, { action = "toggle" }))
 
@@ -39,6 +40,11 @@ hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + up", hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "down" }))
+
+hl.bind(mainMod .. "+ SHIFT + left", hl.dsp.window.swap({ direction = "left" }))
+hl.bind(mainMod .. "+ SHIFT + right", hl.dsp.window.swap({ direction = "right" }))
+hl.bind(mainMod .. "+ SHIFT + up", hl.dsp.window.swap({ direction = "up" }))
+hl.bind(mainMod .. "+ SHIFT + down", hl.dsp.window.swap({ direction = "down" }))
 
 -- add resizing binds -= keys
 -- bind = $mainMod, code:20, resizeactive, -100 0    # - key

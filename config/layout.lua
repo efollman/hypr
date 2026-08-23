@@ -11,6 +11,11 @@ hl.config({
 		preserve_split = true,
 	},
 
+	scrolling = {
+		fullscreen_on_one_column = true,
+		column_width = 0.45,
+	},
+
 	master = {
 		allow_small_split = true,
 		special_scale_factor = 0.95,
